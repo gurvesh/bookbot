@@ -15,10 +15,8 @@ Analyzing book found at {filepath}...
         book_char_map = char_map(file_contents)
         # print(book_char_map)
         sorted_list = sorted_list_dicts(book_char_map)
-        for char_dict in sorted_list:
-            if char_dict['char'].isalpha():
-                print(f"{char_dict['char']}: {char_dict['count']}")
-    
+        for (char, count) in sorted_list:
+            print(f"{char}: {count}")
     print("============= END ===============")
 
 def main():

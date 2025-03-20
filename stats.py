@@ -6,18 +6,13 @@ def char_map(str):
     out = {}
     for c in str:
         lower_c = c.lower()
-        if lower_c in out:
-            out[lower_c] += 1
-        else:
-            out[lower_c] = 1
+        if lower_c.isalpha():
+            out[lower_c] = out.setdefault(lower_c, 0) + 1
     return out
 
-def sort_on(dict):
-    return dict["count"]
+def sort_on(tup):
+    return tup[1]
 
-def sorted_list_dicts(char_map):
-    out = []
-    for c in char_map:
-        out.append({"char": c, "count": char_map[c]})
-    out.sort(reverse=True, key=sort_on)
-    return out
+def sorted_list_dicts(char_map:dict):
+    items = char_map.items()
+    return sorted(items, key=sort_on, reverse=True)
